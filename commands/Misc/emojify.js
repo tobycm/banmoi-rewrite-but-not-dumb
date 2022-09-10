@@ -19,7 +19,7 @@ const mapping = {
 
 const normal_latin = "abcdefghijklmnopqrstuvwxyz".split()
 
-async function emojify(client, message, args) {
+async function emojify(message, args) {
     await message.delete();
 
     let result = "";

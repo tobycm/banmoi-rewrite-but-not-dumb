@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js")
 const pm = require('ms');
 
-async function ping(client, message, args) {
+async function ping(message, ) {
 
     const msg = await message.channel.send("<a:load:1003146806496067654> | Checking...");
 

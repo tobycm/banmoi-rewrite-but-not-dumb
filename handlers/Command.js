@@ -21,7 +21,7 @@ async function execute_command(message) {
     if (!message.guild.me.permissions.has(command.banmoiPerms || [])) return message.channel.send(`Bot không đủ quyền  \`${command.banmoiPerms || []}\` để thực thi lệnh`)
 
     try {
-        command.run(banmoi, message, args, prefix)
+        command.run(message, args)
     }
     catch (error) {
         console.log(error)

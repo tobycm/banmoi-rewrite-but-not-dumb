@@ -1,4 +1,4 @@
-const { MessageEmbed, MessageActionRow, MessageSelectMenu, Message } = require('discord.js');
+const { MessageEmbed, MessageActionRow, MessageSelectMenu } = require('discord.js');
 const fs = require('fs');
 
 
@@ -7,7 +7,8 @@ module.exports = {
     userPerms: ["SEND_MESSAGES"],
     clientPerms:['EMBED_LINKS'],
     description: 'Show all available bot commands', // description of the command
-    run: async (client, message, args,prefix) => {
+    run: async (message, args, prefix) => {
+        let client = message.client
         if(args.length === 0) { // if no arguments in the messages, means argument length is equals to 0
             const dirs = []; // define dirs variable as an empty array
             const categories =  []; // define categories variable as an empty array

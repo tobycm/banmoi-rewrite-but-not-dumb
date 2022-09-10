@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 
-async function snipe(client, message, args) {
+async function snipe(message, ) {
     const msg = client.snipes.get(message.channel.id); //find the deleted message in message channel
 
     if (!msg) {
@@ -26,12 +26,12 @@ async function snipe(client, message, args) {
         .then( async (message) => {
             let collector = msg1.createReactionCollector(
                 (reaction, user) => user.id === message.author.id
-            );
-            collector.on("collect", async (reaction, user) => {
-                if (reaction._emoji.name === "❌") {
-                    return msg1.delete();
-                }
-            })
+            )
+                .on("collect", async (reaction, user) => {
+                    if (reaction._emoji.name === "❌") {
+                        return msg1.delete();
+                    }
+                })
         })
 }
 
