@@ -2,6 +2,6 @@
     "bot": {
         "DISCORD_TOKEN": "",
         "PREFIX": "",
-        "OWNERID" : 1234567890
+        "OWNERID": [1234567890]
     }
 }

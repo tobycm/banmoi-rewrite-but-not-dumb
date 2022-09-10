@@ -1,10 +1,12 @@
-const { execute_command } = require("../handlers/Command")
+const { error_handler } = require("../handlers/Error")
 
 async function messageCreate(message) {
     if (message.author.bot) return;
 
     let banmoi = message.client;
-    if (message.content.startsWith(banmoi.prefix)) await execute_command(message);
+    if (message.content.startsWith(banmoi.prefix)) {
+        
+    }
 }
 
 module.exports = {

@@ -1,9 +1,10 @@
+const { MissingArguments, OwnerOnly, UserMissingPerms, BotMissingPerms } = require("../models/errors");
 
 async function execute_command(message) {
     
     if (!message.member) message.member = await message.guild.fetchMember(message);
 
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    let args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
 
     if (cmd.length == 0) return;
@@ -11,14 +12,16 @@ async function execute_command(message) {
     if (!command) command = banmoi.commands.get(banmoi.aliases.get(cmd));
 
     if (command.ownerOnly) {
-        if(!banmoi.config.OWNERID.includes(message.author.id)) {
-            return message.reply(`${message.member} You can't access owner commands`);
-        }
-    } 
+        if(!banmoi.ownerid.includes(message.author.id)) throw OwnerOnly(message)
+    }
 
-    if (!message.member.permissions.has(command.userPerms || [])) return message.channel.send(`Bạn không có quyền \`${command.userPerms || []}\` để dùng lệnh này`)
+    if (command.args === true) {
+        if (args === []) throw MissingArguments(message);
+    }
 
-    if (!message.guild.me.permissions.has(command.banmoiPerms || [])) return message.channel.send(`Bot không đủ quyền  \`${command.banmoiPerms || []}\` để thực thi lệnh`)
+    if (!message.member.permissions.has(command.userPerms)) throw UserMissingPerms(message, command.userPerms)
+
+    if (!message.guild.me.permissions.has(command.clientPerms)) throw BotMissingPerms(message, command.clientPerms)
 
     try {
         command.run(message, args)
