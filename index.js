@@ -1,6 +1,6 @@
 const { Banmoi } = require("./models/client")
 
-const { add_commands, add_events } = require("./handlers/command")
+const { add_commands, add_events } = require("./handlers/CommandLoader")
 
 const banmoi = new Banmoi(
 	{
@@ -13,6 +13,4 @@ const banmoi = new Banmoi(
 add_commands(banmoi)
 add_events(banmoi)
 
-const token = process.env['token']
-
-banmoi.login(token);
+banmoi.login(banmoi.token);
