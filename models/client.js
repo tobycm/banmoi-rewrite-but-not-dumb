@@ -10,13 +10,13 @@ class Banmoi extends Client {
     slashCommands = new Collection();
 
     config = require('../config.json');
-    getprefix() {
+    get prefix() {
         return this.config.bot.PREFIX
     }
-    gettoken() {
+    get token() {
         return this.config.bot.DISCORD_TOKEN
     }
-    getownerid() {
+    get ownerid() {
         return this.config.bot.OWNERID
     }
 

@@ -8,7 +8,7 @@ async function help(message, args) {
         var cate = new Collection();
         
         for (let command of banmoi.commands.entries()) {
-            let command_cate = cate.get(command.category).constructor.toString().indexOf("Array") > -1 ? cate.get(command.category) : []
+            let command_cate = cate.get(command.category).constructor === Array ? cate.get(command.category) : []
             cate.set(command.category, command_cate)
         }
 
