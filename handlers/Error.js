@@ -1,10 +1,13 @@
 const { execute_command } = require("../handlers/Command");
+const { CommandError } = require("../models/errors");
 
 async function error_handler() {
     try {
         await execute_command(message);
     }
     catch (error) {
+        if (!error.prototype instanceof CommandError) throw error; // if not command error, throw it again.
+
         console.error(error.name)
 
         let error_mapping = {
