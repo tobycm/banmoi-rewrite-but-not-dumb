@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-VOLUME ["json.sqlite"]
+# VOLUME [""]
 
 CMD [ "node", "index.js" ]
