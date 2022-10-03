@@ -25,7 +25,7 @@
     "ascii-table": "^0.0.9",
     "canvacord": "^5.4.8",
     "discord-api-types": "^0.37.11",
-    "discord.js": "^13.8.1",
+    "discord.js": "^14.5.0",
     "dotenv": "^16.0.3",
     "fs": "^0.0.1-security",
     "glob": "^8.0.3",
