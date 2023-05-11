@@ -23,7 +23,7 @@
   "dependencies": {
     "@discordjs/rest": "^1.2.0",
     "ascii-table": "^0.0.9",
-    "canvacord": "^5.4.8",
+    "canvacord": "^5.4.9",
     "discord-api-types": "^0.37.11",
     "discord.js": "^13.8.1",
     "dotenv": "^16.0.3",
